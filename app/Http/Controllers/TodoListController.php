@@ -35,7 +35,12 @@ class TodoListController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO: ДЗ4 Создать метод добавления нового списка дел
+        // TODO: request validation
+        $todoList = TodoList::create([
+            'title' => $request->title,
+        ]);
+
+        return response()->json($todoList);
     }
 
     /**
@@ -71,7 +76,13 @@ class TodoListController extends Controller
      */
     public function update(Request $request, TodoList $todoList)
     {
-        // TODO: ДЗ4 Реализовать переименование списка дел
+        // TODO: добавить валидацию запроса
+        
+        $todoList->update([
+            'title' => $request->title,
+        ]);
+
+        return $todoList;
     }
 
     /**
@@ -82,6 +93,9 @@ class TodoListController extends Controller
      */
     public function destroy(TodoList $todoList)
     {
-        // TODO: ДЗ4 реализовать удаление списка дел
+        $todoList->delete();
+
+        // TODO: Проверить 204 код
+        return response()->json('', 204);
     }
 }

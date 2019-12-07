@@ -18,9 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('todos', 'TodoListController@index');
+Route::post('todos', 'TodoListController@store');
 Route::get('todos/{todoList}', 'TodoListController@show');
-Route::post('todos/{todoList}', 'TodoListController@update'); // TODO:
-Route::post('todos/{todoList}/remove', 'TodoListController@destroy'); // TODO:
+Route::post('todos/{todoList}', 'TodoListController@update');
+Route::post('todos/{todoList}/remove', 'TodoListController@destroy');
 
 Route::post('todos/{todoList}/items', 'TodoItemController@store');
 Route::post('items/{todoItem}', 'TodoItemController@update');
