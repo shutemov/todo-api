@@ -84,6 +84,24 @@ class TodoItemController extends Controller
         return response()->json('ok');
     }
 
+    //TODO: сделано переименование элемента списка задач.
+    /**
+     * Rename the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\TodoItem  $todoItem
+     * @return \Illuminate\Http\Response
+     */
+    public function rename(Request $request, TodoItem $todoItem)
+    {
+        // TODO: add authorization
+        $todoItem->update([
+            'title' => $request -> title,
+        ]);
+        return response()->json('ok');
+    }
+
+    //TODO: сделано удаление элемента списка задач.
     /**
      * Remove the specified resource from storage.
      *

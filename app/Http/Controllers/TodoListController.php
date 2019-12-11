@@ -77,14 +77,31 @@ class TodoListController extends Controller
     public function update(Request $request, TodoList $todoList)
     {
         // TODO: добавить валидацию запроса
-        
+
         $todoList->update([
             'title' => $request->title,
         ]);
 
         return $todoList;
     }
+    //TODO: сделано переименование списка задач.
+    /**
+     * Rename the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\TodoItem  $todoItem
+     * @return \Illuminate\Http\Response
+     */
+    public function rename(Request $request, TodoList $todoList)
+    {
+        // TODO: add authorization
+        $todoList->update([
+            'title' => $request -> title,
+        ]);
+        return response()->json('ok');
+    }
 
+    //TODO: сделано удаление списка задач.
     /**
      * Remove the specified resource from storage.
      *
